@@ -53,7 +53,7 @@
             </div>
         </nav>
         <!-- hero section-->
-        <section class="md:container mx-auto relative">
+        <section class="md:container mx-auto font-Raleway relative">
             <div class="bg-[url('./images/banner.png')] bg-center bg-cover bg-no-repeat  rounded-3xl">
                 <div class="mt-3  flex flex-col items-center justify-center">
                     <div class="pt-16 text-center">
@@ -70,7 +70,8 @@
                             streamlined .
                         </p>
                     </div>
-                    <button class="btn mb-40 mt-12">Buy Tickets</button>
+                    <a href="#ticket"><button class="btn mb-40 mt-1 bg-[#1DD100] border-none font-bold text-black">Buy
+                            Tickets</button></a>
                 </div>
             </div>
             <div class="grid grid-cols-3 justify-center gap-3 -bottom-14 translate-x-0 font-Inter -translate-y-14 mx-5">
@@ -204,7 +205,7 @@
             </div>
         </section>
         <!-- seat booking section -->
-        <section class="bg-[#F7F8F8] pb-32">
+        <section id="ticket" class="bg-[#F7F8F8] pb-32">
             <div class="md:container mx-auto bg-white  rounded-xl grid grid-cols-3  gap-5 p-5">
                 <div class="col-span-2 border-r-2 border-dashed pr-5">
                     <div class="pb-5 ">
@@ -342,20 +343,21 @@
                         </div>
                     </section>
                     <!-- passenger form section -->
-                    <div class="mt-6 space-y-6">
+                    <div id="passenger-sction" class="mt-6 space-y-6 hidden">
                         <div>
                             <h3 class="font-semibold">Passenger Name*</h3>
-                            <input class="w-full mt-3 border border-[#0307121A] rounded-xl p-5" type="text"
-                                placeholder="Enter your name">
+                            <input id="passenger-name" class="w-full mt-3 border border-[#0307121A] rounded-xl p-5"
+                                type="text" placeholder="Enter your name">
                         </div>
                         <div>
                             <h3 class="font-semibold">Phone Number*</h3>
                             <input id="phone-number" class="w-full mt-3 border border-[#0307121A] rounded-xl p-5"
-                                type="text" placeholder="Enter your phone number">
+                                type="number" placeholder="Enter your phone number">
                         </div>
                         <div>
                             <h3 class="font-semibold">Email ID</h3>
-                            <input class="w-full mt-3 border border-[#0307121A] rounded-xl p-5" type="email"
+                            <input id="passenger-email" required
+                                class="w-full mt-3 border border-[#0307121A] rounded-xl p-5" type="email"
                                 placeholder="Enter your name">
                         </div>
                         <button id="next-btn" disabled onclick="my_modal_1.showModal()"

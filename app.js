@@ -8,6 +8,7 @@ const defaultText = document.getElementById("default-text");
 const grandTotal = document.getElementById("grand-total");
 const phoneNumber = document.getElementById("phone-number");
 const nextBtn = document.getElementById("next-btn");
+const passenger = document.getElementById("passenger-sction");
 let selectSeats = [];
 let total = 0;
 function handelSelectSeat(event) {
@@ -15,7 +16,7 @@ function handelSelectSeat(event) {
   if (selectSeats.includes(value)) {
     alert("seat already booked");
     return;
-  } else if (selectSeats.length < 4) {
+  } else if (selectSeats.length < 7) {
     event.classList.add("bg-[#1DD100]");
     event.classList.add("text-white");
     selectSeats.push(event.innerText);
@@ -60,15 +61,26 @@ document.getElementById("coupon-btn").addEventListener("click", function () {
 
   const grandTotalValue = total - couponSave;
   grandTotal.innerText = grandTotalValue;
+  passenger.classList.remove("hidden");
 });
-phoneNumber.addEventListener("keyup", function (event) {
-  const inputValue = event.target.value;
-  if (inputValue.length === 11) {
+const passengerName = document.getElementById("passenger-name");
+const passengerEmail = document.getElementById("passenger-email");
+function toggleNextButton() {
+  const phoneValid = phoneNumber.value.length >= 11;
+  const nameValid = passengerName.value.length > 0;
+  const emailValid = passengerEmail.value.length > 0;
+
+  if (phoneValid && nameValid && emailValid) {
     nextBtn.removeAttribute("disabled");
   } else {
     nextBtn.setAttribute("disabled", true);
   }
-});
+}
+
+phoneNumber.addEventListener("keyup", toggleNextButton);
+passengerName.addEventListener("keyup", toggleNextButton);
+passengerEmail.addEventListener("keyup", toggleNextButton);
+
 document.getElementById("continue").addEventListener("click", function () {
   window.location.reload();
 });
